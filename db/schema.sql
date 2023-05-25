@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS devsccripts_db;
-CREATE DATABASE devscripts_db;
+DROP DATABASE IF EXISTS devsccript_db;
+CREATE DATABASE devscript_db;
 
-USE devscripts_db;
+USE devscript_db;
