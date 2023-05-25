@@ -38,7 +38,7 @@ router.put('/:id', withAuth, (req,res) => {
         }
     )
     .then(commentData => {
-        id (!commentData) {
+        if (!commentData) {
             res.status(404).json({ message: "No comment found with this id" });
             return;
         }
