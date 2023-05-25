@@ -61,6 +61,10 @@ router.delete('/:id', withAuth, (req, res) => {
             res.status(404).json({ message: 'No comment found with this id!'});
         }
         res.json(commentData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
     });
 });
 
