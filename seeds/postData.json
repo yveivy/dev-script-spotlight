@@ -1,0 +1,18 @@
+[
+    {
+      "title": "10 Essential HTML Tags Every Web Developer Should Know",
+      "body": "In this blog post, we explore the fundamental HTML tags that every web developer should be familiar with. We provide a concise overview of tags like <h1> for headings, <p> for paragraphs, <a> for links, and more. Additionally, we discuss the proper usage and best practices for each tag, helping beginners gain a solid understanding of HTML structure.",
+      "user_id": 1
+    },
+    {
+      "title": "CSS Flexbox vs CSS Grid: Which Layout System Should you Choose?",
+      "body": "The blog post dives into the two popular layout systems in CSS: Flexbox and Grid. We explain the key differences between the two and provide use cases for each. By outlining the strengths and limitations of Flexbox and Grid, readers will gain insights into when to choose one layout system over the other based on specific project requirements.",
+      "user_id": 2
+    },
+    {
+      "title": "Introduction to JavaScript Frameworks: React, Angular, and Vue",
+      "body": "In this blog post, we introduce three of the most popular JavaScript frameworks: React, Angular, and Vue. We provide an overview of each framework, discussing their core concepts, features, and use cases. By comparing and contrasting these frameworks, we help readers make an informed decision when selecting the most suitable framework for their web development projects.",
+      "user_id": 3
+    }
+  ]
+  

@@ -1,0 +1,17 @@
+[
+    {
+        "comment_text": "Semantic HTML makes it so much easier to read",
+        "user_id": 1,
+        "post_id": 1
+    },
+    {
+        "comment_text": "I'm still trying to understand Flexbox layout. But I love Flexbox Froggy!",
+        "user_id": 2,
+        "post_id": 2
+    },
+    {
+        "comment_text": "We will learn React next week in my Bootcamp",
+        "user_id": 3,
+        "post_id": 3
+    }
+]
