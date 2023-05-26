@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -54,7 +55,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         ]
     })
     .then(postData => {
-        if(postData) {
+        if(!postData) {
             const post = postData.get({ plain: true});
             
             res.render('edit-post', {
