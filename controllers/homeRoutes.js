@@ -1,4 +1,7 @@
+//User facing routes
+
 const router = require('express').Router();
+const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
@@ -21,16 +24,17 @@ router.get('/', async (req, res) => {
                 }
             ],
         })
-
+        .then(postData)
         // Serialize data so the template can read it
         const posts = postData.map((post) => post.get({ plain: true }));
 
         // Pass serialized data and session flag into template
-        res.render('homepage', {
+        res.render('/homepage', {
             posts, loggedIn: req.session.loggedIn
         });
 
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -87,7 +91,7 @@ router.get('/post', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-// If the user is already logged in, redirect the request ot another route
+// If the user is already logged in, redirect the request to another route
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
