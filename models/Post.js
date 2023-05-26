@@ -16,7 +16,8 @@ Post.init(
             allowNull: false,
         },
         body: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(500),
+            
         },
         created_at: {
             type: DataTypes.DATE,
