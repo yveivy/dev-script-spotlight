@@ -18,13 +18,21 @@ if (process.env.JAWS_URL) {
     );
   }
 
-  sequelize.sync({ force: true })
-    .then(() => {
-        console.log('Tables created successfully');
-    })
-    .catch((error) => {
-        console.error('Error creating tables:', error);
-    });
+
+  // try{
+  // sequelize.sync({ force: true })
+  //   .then(() => {
+  //       console.log('Tables created successfully');
+  //   })
+  //   .catch((error) => {
+  //       console.error('Error creating tables:', error);
+  //   });
+
+  // } catch (err) {
+  //   console.error(err);
+  //   console.error(err.stack);
+  // }
+
 
   
   module.exports = sequelize;
