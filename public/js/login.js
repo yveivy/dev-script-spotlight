@@ -1,3 +1,11 @@
+const handleLoginLinkClick = (event) => {
+  event.preventDefault();
+  $('#login-form-container').toggle();
+}
+
+$(`a.login-link`).on('click', handleLoginLinkClick);
+
+
 const loginFormHandler = async (event) => {
     event.preventDefault();
   
