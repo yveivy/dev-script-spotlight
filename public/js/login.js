@@ -4,6 +4,7 @@ const handleLoginLinkClick = (event) => {
 }
 
 $(`a.login-link`).on('click', handleLoginLinkClick);
+//This broke my Login link somehow. Have to troubleshoot
 
 
 const loginFormHandler = async (event) => {
