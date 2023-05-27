@@ -6,7 +6,11 @@ router.get('/', (req, res) => {
         attributes: { exclude: ['password']}
     })
     .then(userData => {
-        console.log(err);
+        console.log(userData);
+        res.status(500).json(userData);
+    })
+    .catch(err => {
+        console.log(err)
         res.status(500).json(err);
     });
 });
