@@ -3,7 +3,7 @@ const handleLoginLinkClick = (event) => {
   $('#login-form-container').toggle();
 }
 
-$(`a.login-link`).on('click', handleLoginLinkClick);
+$(`a#login-link`).on('click', handleLoginLinkClick);
 //This broke my Login link somehow. Have to troubleshoot
 
 
