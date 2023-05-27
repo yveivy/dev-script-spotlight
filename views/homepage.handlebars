@@ -1,30 +1,30 @@
-<article class="post">
-{{each posts as |post| }}
-{{> post-info post}}
+
 
 </article>
-
-
-
-
-
-
-
-
-{{!-- I would like to display grid but not sure if I can get it to work --}}
-
-{{!-- <main class="container">
+<main class="container">
 <section class="blogs-section">
 <div class="grid-container">
-    {{#each posts as |post|}}
+ {{#each posts as |post|}}
+    <article class="post">
     <div class="grid-item">
          {{> post-info post}}
     </div>
+    </article>
 </div>
 <div>
    {{/each}}
 </div>
 </section>
-</main> --}}
+</main>
+
+{{!-- <section class="blogs-section"></section>
+<div class="blog-card">
+  <img src="https://picsum.photos/200/300" class="blog-image" alt="">
+  <h1 class="blog-title">Lorem ipsum dolor sit amet consectetur</h1>
+  <p class="overview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente asperiores laborum beatae eos accusantium ea voluptatibus, quas enim porro optio fugiat necessitatibus. Quidem sapiente ut laudantium aliquam aspernatur eveniet mollitia!</p>
+<a href="/" class="btn dark">read</a>
+</div> --}}
+
+
 
 
