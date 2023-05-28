@@ -1,13 +1,18 @@
-const handleLoginLinkClick = (event) => {
-  event.preventDefault();
-  $('#login-form-container').toggle();
-}
+document.addEventListener('DOMContentLoaded', (event) => { 
 
-$(`a#login-link`).on('click', handleLoginLinkClick);
-//This broke my Login link somehow. Have to troubleshoot
+
+
+// const handleLoginLinkClick = (event) => {
+//   event.preventDefault();
+//   $('#login-form-container').toggle();
+// }
+
+// $(`a#login-link`).on('click', handleLoginLinkClick);
+
 
 
 const loginFormHandler = async (event) => {
+  console.log('loginFormHandler is being called');
     event.preventDefault();
   
     // Collect values from the login form
@@ -28,20 +33,23 @@ const loginFormHandler = async (event) => {
       } else {
         alert(response.statusText);
       }
+      const responseData = await response.json();
+      console.log(responseData);
     }
   };
   
   const signupFormHandler = async (event) => {
+    console.log('signupFormHandler is being called');
     event.preventDefault();
   
-    const name = document.querySelector('#name-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+    const username = document.querySelector('#username-join').value.trim();
+    const email = document.querySelector('#email-join').value.trim();
+    const password = document.querySelector('#password-join').value.trim();
   
-    if (name && email && password) {
+    if (username && email && password) {
       const response = await fetch('/api/users', {
         method: 'POST',
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ username, email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
   
@@ -58,5 +66,6 @@ const loginFormHandler = async (event) => {
     .addEventListener('submit', loginFormHandler);
   
   document
-    .querySelector('.signup-form')
+    .querySelector('.join-form')
     .addEventListener('submit', signupFormHandler);
+  });
