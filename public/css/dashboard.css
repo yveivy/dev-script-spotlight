@@ -1,4 +1,4 @@
-.banner {
+/* .banner {
     width: 100%;
     height: 400px;
     position: relative;
@@ -21,7 +21,7 @@
     align-items: center;
     cursor: pointer;
   
-}
+} */
 .blog {
     width: 70vh;
     min-width: 400px;
@@ -75,8 +75,13 @@ textarea::-webkit-scrollbar-thumb{
 
 }
 
+.form.new-post-form {
+    position: relative;
+    padding-bottom: 600px;
+}
+
 .blog-options {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
@@ -85,7 +90,7 @@ textarea::-webkit-scrollbar-thumb{
     z-index: 9;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; 
 
 }
 

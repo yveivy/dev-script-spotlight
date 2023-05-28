@@ -32,25 +32,28 @@ body {
 }
 
 .links-container {
+    margin-top: 20px;
     display: flex;
     list-style: none;
 }
 
 .link {
-    padding: 10px;
+    padding: 20px;
     margin-left: 10px;
+    margin-top: 30px;
     text-decoration: none;
     text-transform: capitalize;
     color: #000;
+
 }
 
-.link-item {
+/* .link-item {
     padding: 10px;
     list-style-type: none;
     color: #000;
     text-decoration: none;
     text-transform: capitalize;
-}
+} */
 
 
 .header {
