@@ -11,6 +11,10 @@ router.get('/', async (req, res) => {
             attributes: ['id', 'title', 'body', 'created_at'],
             include: [
                 {
+                    model: User,
+                    attributes: ['username']
+                },
+                {
                     model: Comment,
                     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                     include: {
@@ -18,10 +22,7 @@ router.get('/', async (req, res) => {
                         attributes: ['username']
                     }
                 },
-                {
-                    model: User,
-                    attributes: ['username']
-                }
+               
             ],
         })
         
@@ -48,6 +49,10 @@ router.get('/post/:id', async (req, res) => {
     const postData = await Post.findByPk(req.params.id, {
         include: [
             {
+                model: User,
+                attributes: ['username'],
+            },
+            {
                 model: Comment,
                 attributes: ['id','comment_text','post_id','user_id','created_at'],
                 include: {
@@ -55,10 +60,7 @@ router.get('/post/:id', async (req, res) => {
                     attributes: ['username']
                 },
             },
-            {
-                    model: User,
-                    attributes: ['username'],
-            },
+           
             
         ]
     });

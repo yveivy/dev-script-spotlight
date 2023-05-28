@@ -12,6 +12,11 @@ router.get('/', withAuth, (req, res) => {
         attributes: [ 'id', 'title', 'body', 'created_at'],
         include: [
             {
+                model: User,
+                attributes: ['username']
+
+            },
+            {
                 model: Comment,
                 attributes: ['id','comment_text', 'post_id', 'user_id', 'created_at'],
                 include: {
@@ -19,11 +24,7 @@ router.get('/', withAuth, (req, res) => {
                     attributes: ['username']
                 }
             },
-            {
-                model: User,
-                attributes: ['username']
 
-            }
         ]
     })
     .then(postData => {
@@ -41,6 +42,10 @@ router.get('/edit/:id', withAuth, (req, res) => {
         attributes: ['id', 'title', 'body','created_at'],
         include: [
             {
+                model: User,
+                attributes: ['username']
+            },
+            {
                 model: Comment,
                 attributes: ['id','comment_text', 'post_id', 'user_id', 'created_at'],
                 include: {
@@ -48,10 +53,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
                     attributes: ['username']
                 }
             },
-            {
-                model: User,
-                attributes: ['username']
-            }
+          
         ]
     })
     .then(postData => {
