@@ -1,73 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog: Dashboard</title>
-  <link rel="stylesheet" href="css/styles.css">
+  {{!-- <link rel="stylesheet" href="css/styles.css"> --}}
   <link rel="stylesheet" href="css/dashboard.css">
 
 </head>
+
 <body>
 
-<div class="banner">
+  {{!-- <div class="banner">
     <input type="file" accept="img/*" id="banner-upload" hidden>
     <label for="banner-upload" class="banner-upload-btn"><img src="img/upload.png" alt="upload banner"></label>
-</div>
+  </div> --}}
+  <div class="welcome">
+    <h2>Welcome, {{name}}</h2>
+  </div>
+  <form class="form new-post-form">
+    <div class="blog">
+      <textarea type="text" name="post-title" class="title" placeholder="Post title..."></textarea>
+      <textarea type="text" name="post-body" class="article" placeholder="Start writing here..."></textarea>
+    </div>
+    <div class="blog-options">
+      <button type="submit" class="btn btn.grey publish-btn">publish</button>
 
-<div class="blog">
-  <textarea type="text" class="title" placeholder="Blog title..."></textarea>
-  <textarea type="text" class="article" placeholder="Start writing here..."></textarea>
-</div>
-<div class="blog-options">
-  <button class="btn-dark publish-btn">publish</button>
-  <input type="file" accept="image/*" id="image-upload" hidden>
-  <label for="image-upload" class="btn grey upload-btn">Upload Image</label>
-
-
-</div>
+      {{!-- <input type="file" accept="image/*" id="image-upload" hidden>
+      <label for="image-upload" class="btn grey upload-btn">Upload Image</label> --}}
+    </div>
+  </form>
+  <main class="container">
+    <section class="blogs-section">
+      <div class="grid-container">
+        <h2>Your Posts</h2>
+        {{#each posts as |post|}}
+        <article class="post">
+          <div class="grid-item">
+            {{> post-info post}}
+            <a href="/dashboard/edit{{post.id}}" class="edit-link">Edit post</a>
+          </div>
+          {{/each}}
+        </article>
+      </div>
+    </section>
+  </main>
 </body>
+
 </html>
 
+<script src="/js/add-post.js"></script>
 
-
-
-
-
-
-{{!-- <section>
-  <h2>Create New Post</h2>
-
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">Title</label>
-      <input type="text" id="post-title" name="post-title" />
-    </div>
-
-    <div>
-      <label for="post-body">Body</label>
-      <textarea id="post-body" name="post-body"></textarea>
-    </div>
-
-    <button type="submit" class="btn">Create</button>
-  </form>
-</section>
-
- --}}
-
-{{#if posts.length}}
-<section>
-  <h2>Your Posts</h2>
-  <ol>
-    {{#each posts as |post|}}
-    <li>
-      {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
-    </li>
-    {{/each}}
-  </ol>
-</section>
-{{/if}}
-
-<script src="/javascript/add-post.js"></script>
