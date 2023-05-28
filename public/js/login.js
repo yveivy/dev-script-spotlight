@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 
-// const handleLoginLinkClick = (event) => {
-//   event.preventDefault();
-//   $('#login-form-container').toggle();
-// }
+const handleLoginLinkClick = (event) => {
+  event.preventDefault();
+  $('#login-form-container').toggle();
+}
 
-// $(`a#login-link`).on('click', handleLoginLinkClick);
+$(`a#login-link`).on('click', handleLoginLinkClick);
 
 
 
