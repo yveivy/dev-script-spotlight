@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
     })
     .then(userData => {
         console.log(userData);
-        res.status(500).json(userData);
+        res.status(200).json(userData);
     })
     .catch(err => {
         console.log(err)
@@ -50,6 +50,7 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log(req.body);
     try {
         const userData = await User.create(req.body);
         req.session.save(() => {
@@ -60,6 +61,7 @@ router.post('/', async (req, res) => {
             res.status(200).json(userData);
         });
     } catch (err) {
+        console.log('Error creating user:', err);
         res.status(400).json(err);
     }
 });
@@ -99,7 +101,10 @@ router.put('/:id', (req, res) => {
         }
     })
     .then(userData => {
-        if (!userData);
+        if (!userData) {
+            res.status(404).json({ message: 'No user found with this id'});
+            return;
+        }
     })
     .catch(err => {
         console.log(err);
@@ -109,7 +114,9 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req,res) => {
     User.destroy({
-
+        where: {
+            id: req.params.id
+        }
     })
     .then(userData => {
         if (!userData) {
@@ -129,5 +136,7 @@ router.post('/logout', (req, res) => {
         res.status(404).end();
     }
 });
+
+  
 
 module.exports = router;

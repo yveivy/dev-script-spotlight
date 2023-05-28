@@ -7,7 +7,7 @@ router.get('/', withAuth, (req, res) => {
 
     Post.findAll({
         where: {
-            user_id: req.sessions.user_id
+            user_id: req.session.user_id
         }, 
         attributes: [ 'id', 'title', 'body', 'created_at'],
         include: [
@@ -28,7 +28,7 @@ router.get('/', withAuth, (req, res) => {
     })
     .then(postData => {
         const posts = postData.map(post => post.get({ plain: true}));
-        res.render('dashboard', { posts, loggedIn: true});
+        res.render('dashboard', { posts, logged_in: true});
     })
     .catch(err => {
         console.log(err);
@@ -59,7 +59,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
             const post = postData.get({ plain: true});
             
             res.render('edit-post', {
-                post, loggedIn: true
+                post, logged_in: true
             });
         } else {
             res.status(404).end();
