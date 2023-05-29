@@ -47,6 +47,7 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
     try {
     const postData = await Post.findByPk(req.params.id, {
+        attributes: ['id', 'title', 'body', 'created_at'],
         include: [
             {
                 model: User,
@@ -54,7 +55,7 @@ router.get('/post/:id', async (req, res) => {
             },
             {
                 model: Comment,
-                attributes: ['id','comment_text','post_id','user_id','created_at'],
+                attributes: ['id','comment_text','created_at'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -64,12 +65,17 @@ router.get('/post/:id', async (req, res) => {
             
         ]
     });
+    if (!postData) {
+        res.status(404).json({ message: 'No post found with this id'});
+    }
 
     const post = postData.get({ plain: true});
     
     res.render('post', {
-        ...post,
-        logged_in: req.session.logged_in
+        post: post,
+        logged_in: req.session.logged_in,
+        css: 'dashboard'
+
     });
 
     } catch (err) {
