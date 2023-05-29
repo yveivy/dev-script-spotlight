@@ -31,7 +31,9 @@
         <article class="post">
           <div class="grid-item">
             {{> post-info post}}
-            <a href="/dashboard/edit-post/{{post.id}}" class="link">Edit post</a>
+            <p class="space">space</p>
+             <a href="/dashboard/edit-post/{{post.id}}" class="btn dark edit-btn">Edit Post</a>
+            {{!-- <a href="/dashboard/edit-post/{{post.id}}" class="link">Edit post</a> --}}
           </div>
           {{/each}}
         </article>
