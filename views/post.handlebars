@@ -1,0 +1,16 @@
+<form class="form view-post-form">
+    <article class="blog">
+        <p>Posted by {{user.username}} on {{created_at}}</p>
+        <h3 class="title">{{post.title}}</h3>
+        <p class="article">{{post.body}}</p>
+      {{#each comments}}
+      {{> comments-info this}}
+      {{/each}}
+    </article>
+    {{!-- <div class="blog-options">
+        <button type="submit" class="btn dark update-btn">Add Comment</button>
+    </div> --}}
+</form>
+{{#if logged_in}}
+<script src="/js/comment.js"></script>
+{{/if}}

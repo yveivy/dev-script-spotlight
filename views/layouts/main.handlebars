@@ -12,6 +12,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    {{#if css}}
+    <link rel="stylesheet" href="/css/{{css}}.css">
+    {{/if}}
 </head>
 
 <body>
@@ -34,7 +37,7 @@
             <h1 class="heading">
                 <span class="small">DevScript</span>
                Spot<span class="no-fill">Light</span></h1>
-            <a href="/post" class="btn">write a blog</a>
+            {{!-- <a href="/post" class="btn">write a blog</a> --}}
         </div>
 
     </header>

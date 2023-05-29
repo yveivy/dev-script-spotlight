@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog: Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/dashboard.css">
-
-</head>
 
 <body>
 
@@ -37,12 +26,12 @@
   <main class="container">
     <section class="blogs-section" id="blogs-section">
       <div class="grid-container">
-        <h2>Your Posts</h2>
+        <h2>Your Posts Below : </h2>
         {{#each posts as |post|}}
         <article class="post">
           <div class="grid-item">
             {{> post-info post}}
-            <a href="/dashboard/edit{{post.id}}" class="link">Edit post</a>
+            <a href="/dashboard/edit-post/{{post.id}}" class="link">Edit post</a>
           </div>
           {{/each}}
         </article>
@@ -54,4 +43,5 @@
 </html>
 
 <script src="/js/add-post.js"></script>
+
 

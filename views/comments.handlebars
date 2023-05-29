@@ -1,0 +1,17 @@
+<form class="form view-post-form">
+    <article class="blog">
+        <h3 class="title">{{post.title}}</h3>
+        <p class="article">{{post.body}}</p>
+        <div class="comments"></div>
+          {{#each comments}}
+        <p>{{comment_text}}</p>
+        <p>comment by {{user.username}}</p>
+        {{/each}}
+    </article>
+    <div class="blog-options">
+        <button type="submit" class="btn dark update-btn">Add Comment</button>
+    </div>
+
+{{#if logged_in}}
+<script src="/js/comment.js"></script>
+{{/if}}
