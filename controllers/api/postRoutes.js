@@ -59,7 +59,9 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ message: 'No post found with this id'});
             return;
         }
-        res.json(postData);
+
+        const post = postData.get({ plain: true});
+        res.json(post);
     })
     .catch(err => {
         console.log(err);
@@ -108,7 +110,7 @@ router.put('/:id', withAuth, (req, res) => {
 
 router.delete('/:id', withAuth, async (req, res) => {
     try {
-        const postData = await belongsTo.destroy({
+        const postData = await Post.destroy({
             where: {
                 id: req.params.id,
                 user_id: req. session.user_id,
