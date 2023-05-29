@@ -187,3 +187,7 @@ textarea::-webkit-scrollbar-thumb {
 .title::placeholder {
     color: #2d2d2d;
 }
+/* Couldn't figure out another way to get space between the buttons and the post title so I made a ptag with the word space and then made the font color the same color as the page. */
+.space {
+    color: #fff;
+}

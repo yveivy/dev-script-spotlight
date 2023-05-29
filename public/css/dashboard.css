@@ -152,4 +152,9 @@ h1 {
 
 }
 
+.space {
+    display: none !important;
+    color: #fff;
+}
+
 
