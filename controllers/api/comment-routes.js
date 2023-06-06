@@ -11,6 +11,20 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+    Comment.findAll({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(CommentData => res.json(CommentData))
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    })
+});
+
+
 router.post('/', withAuth, (req, res) => {
     if(req.session) {
         Comment.create({

@@ -75,7 +75,8 @@ textarea::-webkit-scrollbar-thumb{
 
 .form.new-post-form,
 .form.edit-post-form,
-.form.view-post-form {
+.form.view-post-form,
+.form.add-comment-form {
     position: relative;
     padding-bottom: 600px;
 }

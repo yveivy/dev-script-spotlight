@@ -111,4 +111,13 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
+router.get('/logout', (req, res) => {
+    // If the user is already logged in, redirect the request to another route
+        if (req.session.logged_out) {
+            res.redirect('/');
+            return;
+        }
+        res.render('logout');
+    });
+
 module.exports = router;
