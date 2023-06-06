@@ -1,16 +1,44 @@
+{{!--
+{{#if loggedIn}}
+<div class="comment-container">
+    <h3 class="card-header"></h3>
+    <form class="card-body comment-form" id="comment-form">
+        <div class="form-row">
+            <label class="form-label">Comment</label>
+            <input id="comment" name="comment-body" class="form-input  form-control" />
+        </div>
+        <button type="submit" class="btn">Submit</button>
+    </form>
+</div>
+{{/if}}
+
+{{> comments-info comment}}
+
+</section> --}}
+
+
+
 <form class="form view-post-form">
     <article class="blog">
-        <p>Posted by {{user.username}} on {{created_at}}</p>
-        <h3 class="title">{{post.title}}</h3>
+        {{> post-info post}}
+        {{!-- <p>Posted by {{user.username}} on {{created_at}}</p>
+        <h3 class="title">{{post.title}}</h3> --}}
         <p class="article">{{post.body}}</p>
-      {{#each comments}}
-      {{> comments-info this}}
-      {{/each}}
+        {{#each comment}}
+        {{> comments-info comment}}
+        {{comment.comment_text}}
+        {{/each}}
     </article>
-    <div class="blog-options">
-        <button type="submit" class="btn dark update-btn">Add Comment</button>
-    </div>
+
 </form>
-{{#if logged_in}}
-<script src="/js/comment.js"></script>
-{{/if}}
+    {{#if logged_in}}
+    <form class="form add-comment-form">
+        <div class="blog">
+     <textarea type="text" name="comment-text" class="article" placeholder="Write a comment here..."></textarea>
+        </div>
+        <div class="blog-options">
+            <button type="submit" class="btn dark update-btn">Add Comment</button>
+        </div>
+    </form>
+    <script src="/js/comment.js"></script>
+    {{/if}}

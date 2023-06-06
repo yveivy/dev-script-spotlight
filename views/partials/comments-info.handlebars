@@ -1,4 +1,9 @@
-<div class="comment">
+{{!-- <div class="comment">
   <p>{{comment.comment_text}}</p>
   <p>Comment by {{comments.user.username}}</p>
+</div> --}}
+
+<div class="comment">
+  <h2>{{comments.comment_text}}</h2>
+  <p>Comment by {{comments.user.username}} on {{comments.created_at}}</p>
 </div>
